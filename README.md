@@ -187,6 +187,33 @@ Authorization: Bearer {token}
 - **Evento:** `ReceiveNewAlert`
 - **Transporte:** WebSockets con fallback a Long Polling
 
+## 🧪 Tests
+
+El proyecto incluye **33 tests unitarios** que cubren:
+
+### Controllers
+- **AuthController**: 5 tests (login válido, credenciales inválidas, validaciones)
+- **ConfigController**: 5 tests (obtener config, validaciones de umbrales)
+- **AlertsController**: 7 tests (listar, obtener por ID, reconocer, validaciones)
+
+### Repositories
+- **ConfigRepository**: 3 tests (CRUD operations con InMemory DB)
+- **AlertRepository**: 5 tests (crear, listar ordenado, obtener, actualizar estado)
+
+### Entities
+- **Alert y Config**: 8 tests (propiedades, constantes, valores por defecto)
+
+### Ejecutar Tests
+
+```bash
+cd backend
+dotnet test
+```
+
+**Resultado esperado**: `33 tests passed` ✅
+
+---
+
 ## 🐛 Troubleshooting
 
 ### El backend no inicia
