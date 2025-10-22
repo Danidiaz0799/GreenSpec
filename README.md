@@ -1,25 +1,25 @@
-# 🏭 Sistema de Alertas de Automatización Industrial
+# 🏭 Industrial Automation Alert System
 
-Sistema full-stack de monitoreo en tiempo real para sensores industriales con notificaciones instantáneas mediante SignalR/WebSockets.
+Full-stack real-time monitoring system for industrial sensors with instant notifications via SignalR/WebSockets.
 ![alt text](image.png)
 
-## 🎯 Características
+## 🎯 Features
 
-- 🔐 **Autenticación JWT** - Sistema seguro de login
-- 📊 **Dashboard en tiempo real** - Actualizaciones automáticas con SignalR
-- ⚙️ **Configuración dinámica** - Ajuste de umbrales de temperatura y humedad
-- 🌡️ **Simulación de sensores** - Generación automática de datos cada 4 segundos
-- 📈 **Gestión de alertas** - Filtrado, paginación y reconocimiento
-- 🔴 **Live updates** - Sin necesidad de recargar la página
+- 🔐 **JWT Authentication** - Secure login system
+- 📊 **Real-time Dashboard** - Automatic updates with SignalR
+- ⚙️ **Dynamic Configuration** - Temperature and humidity threshold adjustment
+- 🌡️ **Sensor Simulation** - Automatic data generation every 4 seconds
+- 📈 **Alert Management** - Filtering, pagination, and acknowledgment
+- 🔴 **Live updates** - No need to reload the page
 
-## 🏗️ Stack Tecnológico
+## 🏗️ Tech Stack
 
 ### Backend
 - ASP.NET Core 8 Web API
 - Entity Framework Core 9.0.10
 - PostgreSQL 15
 - JWT Bearer Authentication
-- SignalR para WebSockets
+- SignalR for WebSockets
 - Clean Architecture (Domain → Infrastructure → Api)
 
 ### Frontend
@@ -29,37 +29,37 @@ Sistema full-stack de monitoreo en tiempo real para sensores industriales con no
 - TanStack Query (React Query)
 - @microsoft/signalr
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
 ```
 GreenSpec/
-├── backend/                          # Backend ASP.NET Core
-│   ├── AlertService.Domain/          # Entidades e interfaces
+├── backend/                          # ASP.NET Core Backend
+│   ├── AlertService.Domain/          # Entities and interfaces
 │   ├── AlertService.Infrastructure/  # EF Core, Repositories, Services
 │   ├── AlertService.Api/             # Controllers, Hubs, DTOs
-│   └── AlertService.sln              # Solución de Visual Studio
+│   └── AlertService.sln              # Visual Studio Solution
 │
-├── frontend/                         # Frontend Next.js
-│   ├── app/                          # Páginas (login, dashboard)
-│   ├── components/                   # Componentes React
-│   ├── lib/                          # API client y hooks
-│   └── types/                        # Definiciones TypeScript
+├── frontend/                         # Next.js Frontend
+│   ├── app/                          # Pages (login, dashboard)
+│   ├── components/                   # React Components
+│   ├── lib/                          # API client and hooks
+│   └── types/                        # TypeScript Definitions
 │
-└── README.md                         # Este archivo
+└── README.md                         # This file
 ```
 
-## 🚀 Inicio Rápido
+## 🚀 Quick Start
 
-### Prerrequisitos
+### Prerequisites
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
 - [Node.js 18+](https://nodejs.org/)
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (recomendado para PostgreSQL)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (recommended for PostgreSQL)
 
-### 1️⃣ Base de Datos con Docker
+### 1️⃣ Database with Docker
 
 ```bash
-# Crear y ejecutar contenedor PostgreSQL
+# Create and run PostgreSQL container
 docker run --name greenspec-postgres \
   -e POSTGRES_USER=postgres \
   -e POSTGRES_PASSWORD=postgres \
@@ -67,86 +67,86 @@ docker run --name greenspec-postgres \
   -p 5432:5432 \
   -d postgres:15
 
-# Verificar que esté corriendo
+# Verify it's running
 docker ps
 
-# Iniciar en el futuro (si ya existe)
+# Start in the future (if already exists)
 docker start greenspec-postgres
 
-# Detener
+# Stop
 docker stop greenspec-postgres
 ```
 
 ### 2️⃣ Backend
 
 ```bash
-# Navegar a la carpeta del backend
+# Navigate to backend folder
 cd backend/AlertService.Api
 
-# Aplicar migraciones (crear tablas)
+# Apply migrations (create tables)
 dotnet ef database update --project ../AlertService.Infrastructure
 
-# Ejecutar el backend
+# Run the backend
 dotnet run
 ```
 
-El backend estará disponible en: **http://localhost:5046**
+Backend will be available at: **http://localhost:5046**
 
 ### 3️⃣ Frontend
 
-**Abrir nueva terminal:**
+**Open new terminal:**
 
 ```bash
-# Navegar a la carpeta del frontend
+# Navigate to frontend folder
 cd frontend
 
-# Instalar dependencias (solo la primera vez)
+# Install dependencies (first time only)
 npm install
 
-# Ejecutar en modo desarrollo
+# Run in development mode
 npm run dev
 ```
 
-El frontend estará disponible en: **http://localhost:3000**
+Frontend will be available at: **http://localhost:3000**
 
-### 4️⃣ Acceder a la Aplicación
+### 4️⃣ Access the Application
 
-1. Abrir http://localhost:3000
-2. Iniciar sesión con:
-   - **Usuario:** `demo`
-   - **Contraseña:** `demo`
+1. Open http://localhost:3000
+2. Login with:
+   - **Username:** `demo`
+   - **Password:** `demo`
    
-   > ⚠️ **Nota:** Las credenciales están hardcodeadas en `backend/AlertService.Api/Controllers/AuthController.cs` solo para propósitos de demostración. El archivo `frontend/.env.local` está incluido en el repositorio para facilitar la prueba.
+   > ⚠️ **Note:** Credentials are hardcoded in `backend/AlertService.Api/Controllers/AuthController.cs` for demonstration purposes only. The `frontend/.env.local` file is included in the repository to facilitate testing.
 
-3. ¡Listo! Verás el dashboard con alertas en tiempo real
+3. Done! You will see the dashboard with real-time alerts
 
-## 📊 Funcionalidades Principales
+## 📊 Main Features
 
 ### Dashboard
-- **Indicador Live:** Muestra el estado de conexión SignalR (🟢 Live / 🟡 Conectando / 🔴 Desconectado)
-- **Total de alertas:** Contador en tiempo real
-- **Filtros:** Todas / Abiertas / Reconocidas
-- **Paginación:** 10 alertas por página con navegación inteligente
+- **Live Indicator:** Shows SignalR connection status (🟢 Live / 🟡 Connecting / 🔴 Disconnected)
+- **Total alerts:** Real-time counter
+- **Filters:** All / Open / Acknowledged
+- **Pagination:** 10 alerts per page with smart navigation
 
-### Configuración de Umbrales
-- **Temperatura Máxima:** Configurable en °C
-- **Humedad Máxima:** Configurable en %
-- **Actualización en vivo:** Los cambios aplican inmediatamente al simulador
+### Threshold Configuration
+- **Maximum Temperature:** Configurable in °C
+- **Maximum Humidity:** Configurable in %
+- **Live update:** Changes apply immediately to the simulator
 
-### Tabla de Alertas
-Columnas:
-- ID de la alerta
-- Tipo (Temperatura 🌡️ / Humedad 💧)
-- Valor detectado
-- Umbral configurado
-- Exceso (valor y porcentaje)
-- Fecha y hora
-- Estado (Abierta 🔴 / Reconocida ✅)
-- Acción (botón "Reconocer")
+### Alerts Table
+Columns:
+- Alert ID
+- Type (Temperature 🌡️ / Humidity 💧)
+- Detected value
+- Configured threshold
+- Excess (value and percentage)
+- Date and time
+- Status (Open 🔴 / Acknowledged ✅)
+- Action ("Acknowledge" button)
 
 ## 🔧 API Endpoints
 
-### Autenticación
+### Authentication
 ```http
 POST http://localhost:5046/auth/login
 Content-Type: application/json
@@ -157,13 +157,13 @@ Content-Type: application/json
 }
 ```
 
-### Configuración
+### Configuration
 ```http
-# Obtener configuración
+# Get configuration
 GET http://localhost:5046/config
 Authorization: Bearer {token}
 
-# Actualizar umbrales
+# Update thresholds
 PUT http://localhost:5046/config
 Authorization: Bearer {token}
 Content-Type: application/json
@@ -174,83 +174,83 @@ Content-Type: application/json
 }
 ```
 
-### Alertas
+### Alerts
 ```http
-# Listar alertas
+# List alerts
 GET http://localhost:5046/alerts
 Authorization: Bearer {token}
 
-# Reconocer alerta
+# Acknowledge alert
 POST http://localhost:5046/alerts/123/acknowledge
 Authorization: Bearer {token}
 ```
 
 ### SignalR Hub
 - **Endpoint:** `ws://localhost:5046/hubs/alerts`
-- **Evento:** `ReceiveNewAlert`
-- **Transporte:** WebSockets con fallback a Long Polling
+- **Event:** `ReceiveNewAlert`
+- **Transport:** WebSockets with Long Polling fallback
 
 ## 🧪 Tests
 
-El proyecto incluye **33 tests unitarios** que cubren:
+The project includes **33 unit tests** covering:
 
 ### Controllers
-- **AuthController**: 5 tests (login válido, credenciales inválidas, validaciones)
-- **ConfigController**: 5 tests (obtener config, validaciones de umbrales)
-- **AlertsController**: 7 tests (listar, obtener por ID, reconocer, validaciones)
+- **AuthController**: 5 tests (valid login, invalid credentials, validations)
+- **ConfigController**: 5 tests (get config, threshold validations)
+- **AlertsController**: 7 tests (list, get by ID, acknowledge, validations)
 
 ### Repositories
-- **ConfigRepository**: 3 tests (CRUD operations con InMemory DB)
-- **AlertRepository**: 5 tests (crear, listar ordenado, obtener, actualizar estado)
+- **ConfigRepository**: 3 tests (CRUD operations with InMemory DB)
+- **AlertRepository**: 5 tests (create, list sorted, get, update status)
 
 ### Entities
-- **Alert y Config**: 8 tests (propiedades, constantes, valores por defecto)
+- **Alert and Config**: 8 tests (properties, constants, default values)
 
-### Ejecutar Tests
+### Run Tests
 
 ```bash
 cd backend
 dotnet test
 ```
 
-**Resultado esperado**: `33 tests passed` ✅
+**Expected result**: `33 tests passed` ✅
 
 ---
 
 ## 🐛 Troubleshooting
 
-### El backend no inicia
-- Verifica que PostgreSQL esté corriendo: `docker ps`
-- Verifica que el puerto 5046 no esté en uso
+### Backend won't start
+- Verify PostgreSQL is running: `docker ps`
+- Verify port 5046 is not in use
 
-### El frontend no se conecta a SignalR
-- Verifica que el backend esté corriendo
-- Revisa la consola del navegador (F12)
-- El error inicial de negociación es normal, se reconecta automáticamente
+### Frontend doesn't connect to SignalR
+- Verify the backend is running
+- Check browser console (F12)
+- Initial negotiation error is normal, it will reconnect automatically
 
 ### Error "Failed to connect to database"
-- Verifica la cadena de conexión en `backend/AlertService.Api/appsettings.json`
-- Asegúrate de que PostgreSQL esté corriendo en el puerto 5432
+- Verify connection string in `backend/AlertService.Api/appsettings.json`
+- Make sure PostgreSQL is running on port 5432
 
-### No aparecen alertas
-- El simulador genera alertas cada 4 segundos
-- Verifica que los umbrales estén configurados (por defecto: Temp 50°C, Humedad 70%)
-- Los valores aleatorios deben superar los umbrales para generar alertas
+### No alerts appear
+- The simulator generates alerts every 4 seconds
+- Verify thresholds are configured (default: Temp 50°C, Humidity 70%)
+- Random values must exceed thresholds to generate alerts
 
-## 🛠️ Comandos Útiles
+## 🛠️ Useful Commands
 
 ### Docker
 ```bash
-# Ver contenedores corriendo
+# View running containers
 docker ps
 
-# Ver logs de PostgreSQL
+# View PostgreSQL logs
 docker logs greenspec-postgres
 
-# Reiniciar PostgreSQL
+# Restart PostgreSQL
 docker restart greenspec-postgres
 
-# Eliminar contenedor
+# Remove container
 docker rm -f greenspec-postgres
 ```
 
@@ -258,37 +258,37 @@ docker rm -f greenspec-postgres
 ```bash
 cd backend/AlertService.Api
 
-# Compilar sin ejecutar
+# Build without running
 dotnet build
 
-# Crear nueva migración
-dotnet ef migrations add NombreMigracion --project ../AlertService.Infrastructure
+# Create new migration
+dotnet ef migrations add MigrationName --project ../AlertService.Infrastructure
 
-# Revertir última migración
-dotnet ef database update NombreMigracionAnterior --project ../AlertService.Infrastructure
+# Revert last migration
+dotnet ef database update PreviousMigrationName --project ../AlertService.Infrastructure
 ```
 
 ### Frontend
 ```bash
 cd frontend
 
-# Compilar para producción
+# Build for production
 npm run build
 
-# Iniciar versión de producción
+# Start production version
 npm start
 
-# Limpiar caché
+# Clean cache
 npm run clean
 ```
 
-## 📦 Dependencias Principales
+## 📦 Main Dependencies
 
 ### Backend
 - `Microsoft.EntityFrameworkCore` 9.0.10
 - `Npgsql.EntityFrameworkCore.PostgreSQL` 9.0.4
 - `Microsoft.AspNetCore.Authentication.JwtBearer` 8.0.0
-- `Microsoft.AspNetCore.SignalR` (incluido en ASP.NET Core)
+- `Microsoft.AspNetCore.SignalR` (included in ASP.NET Core)
 
 ### Frontend
 - `next` 16.0.0
@@ -298,19 +298,19 @@ npm run clean
 - `axios` 1.7.9
 - `tailwindcss` 3.4.17
 
-## 📝 Notas de Desarrollo
+## 📝 Development Notes
 
-- **Credenciales demo:** Hardcodeadas (`demo`/`demo`) en `backend/AlertService.Api/Controllers/AuthController.cs` solo para demostración. En producción se debe implementar un sistema de usuarios con base de datos.
-- **JWT SecretKey:** Configurada en `appsettings.json`. En producción debe moverse a Azure Key Vault o variables de entorno.
-- **Base de datos:** La contraseña de PostgreSQL está en `appsettings.json`. En producción usar secrets manager.
-- **Simulador:** Genera valores aleatorios entre 30-70°C y 50-100% cada 4 segundos.
-- **SignalR:** Notifica a todos los clientes conectados cuando se genera una alerta.
-- **Paginación:** 10 items por página, configurable en `frontend/components/AlertsTable.tsx`.
+- **Demo credentials:** Hardcoded (`demo`/`demo`) in `backend/AlertService.Api/Controllers/AuthController.cs` for demonstration only. In production, implement a database-backed user system.
+- **JWT SecretKey:** Configured in `appsettings.json`. In production, move to Azure Key Vault or environment variables.
+- **Database:** PostgreSQL password is in `appsettings.json`. In production, use a secrets manager.
+- **Simulator:** Generates random values between 30-70°C and 50-100% every 4 seconds.
+- **SignalR:** Notifies all connected clients when an alert is generated.
+- **Pagination:** 10 items per page, configurable in `frontend/components/AlertsTable.tsx`.
 
 ---
 
-## 👨‍💻 Autor
+## 👨‍💻 Author
 
 **Daniel Steven Diaz**
 
-Sistema de monitoreo industrial desarrollado con ASP.NET Core, Next.js y SignalR.
+Industrial monitoring system developed with ASP.NET Core, Next.js, and SignalR.
