@@ -75,11 +75,13 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+// Swagger disponible en todos los ambientes para facilitar testing
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Alert Service API v1");
+    c.RoutePrefix = string.Empty; // Swagger UI en la raíz (http://localhost:5046/)
+});
 
 // app.UseHttpsRedirection(); // Comentado para desarrollo simple
 

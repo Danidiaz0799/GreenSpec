@@ -144,7 +144,37 @@ Columns:
 - Status (Open 🔴 / Acknowledged ✅)
 - Action ("Acknowledge" button)
 
-## 🔧 API Endpoints
+## � API Documentation
+
+### Swagger UI
+
+The backend includes **Swagger/OpenAPI** documentation for easy API exploration and testing.
+
+**Access Swagger UI:**
+1. Start the backend: `cd backend/AlertService.Api && dotnet run`
+2. Open your browser at: **http://localhost:5046**
+3. You'll see the interactive Swagger UI with all endpoints documented
+
+**Features:**
+- 🔓 **JWT Authentication** - Click "Authorize" button, enter `Bearer {your-token}`
+- 📝 **Try it out** - Test all endpoints directly from the browser
+- 📋 **Request/Response schemas** - See all DTOs and models
+- 🔒 **Secured endpoints** - Marked with a lock icon (require authentication)
+
+**Quick Test Flow:**
+1. Expand `POST /auth/login` → Click "Try it out"
+2. Use credentials: `{"username": "demo", "password": "demo"}`
+3. Copy the token from the response
+4. Click "Authorize" (top right) → Enter `Bearer {paste-token-here}`
+5. Now you can test all protected endpoints!
+
+### HTTP File
+
+Alternatively, use the included `Requests.http` file with VS Code REST Client extension:
+- Located at: `backend/AlertService.Api/Requests.http`
+- Contains all endpoint examples with variables
+
+## �🔧 API Endpoints
 
 ### Authentication
 ```http
