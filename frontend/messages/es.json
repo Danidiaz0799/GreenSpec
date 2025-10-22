@@ -1,0 +1,64 @@
+{
+  "auth": {
+    "title": "Iniciar Sesión",
+    "subtitle": "Sistema de Gestión de Alertas",
+    "username": "Usuario",
+    "password": "Contraseña",
+    "loginButton": "Iniciar Sesión",
+    "errorTitle": "Error de autenticación",
+    "errorMessage": "Usuario o contraseña incorrectos"
+  },
+  "dashboard": {
+    "title": "Dashboard - Sistema de Alertas",
+    "logout": "Cerrar Sesión"
+  },
+  "config": {
+    "title": "Configuración de Umbrales",
+    "tempLabel": "Temperatura Máxima (°C)",
+    "humidityLabel": "Humedad Máxima (%)",
+    "saveButton": "Guardar Configuración",
+    "lastUpdate": "Última actualización",
+    "successTitle": "¡Configuración guardada!",
+    "successMessage": "Los umbrales han sido actualizados correctamente.",
+    "errorTitle": "Error",
+    "errorMessage": "No se pudo guardar la configuración"
+  },
+  "alerts": {
+    "title": "Alertas del Sistema",
+    "liveIndicator": "EN VIVO",
+    "filterAll": "Todas",
+    "filterOpen": "Abiertas",
+    "filterClosed": "Cerradas",
+    "noAlerts": "No hay alertas que mostrar",
+    "tableHeaders": {
+      "id": "ID",
+      "type": "Tipo",
+      "value": "Valor",
+      "threshold": "Umbral",
+      "status": "Estado",
+      "date": "Fecha",
+      "actions": "Acciones"
+    },
+    "types": {
+      "Temperature": "Temperatura",
+      "Humidity": "Humedad"
+    },
+    "status": {
+      "open": "Abierta",
+      "closed": "Cerrada"
+    },
+    "closeButton": "Cerrar",
+    "closeSuccess": "Alerta cerrada correctamente",
+    "closeError": "No se pudo cerrar la alerta",
+    "pagination": {
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "page": "Página",
+      "showing": "Mostrando"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 GreenSpec - Sistema de Alertas Industrial",
+    "status": "Sistema Activo"
+  }
+}

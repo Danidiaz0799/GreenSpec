@@ -1,0 +1,64 @@
+{
+  "auth": {
+    "title": "Sign In",
+    "subtitle": "Alert Management System",
+    "username": "Username",
+    "password": "Password",
+    "loginButton": "Sign In",
+    "errorTitle": "Authentication Error",
+    "errorMessage": "Incorrect username or password"
+  },
+  "dashboard": {
+    "title": "Dashboard - Alert System",
+    "logout": "Logout"
+  },
+  "config": {
+    "title": "Threshold Configuration",
+    "tempLabel": "Max Temperature (°C)",
+    "humidityLabel": "Max Humidity (%)",
+    "saveButton": "Save Configuration",
+    "lastUpdate": "Last update",
+    "successTitle": "Configuration saved!",
+    "successMessage": "Thresholds have been updated successfully.",
+    "errorTitle": "Error",
+    "errorMessage": "Could not save configuration"
+  },
+  "alerts": {
+    "title": "System Alerts",
+    "liveIndicator": "LIVE",
+    "filterAll": "All",
+    "filterOpen": "Open",
+    "filterClosed": "Closed",
+    "noAlerts": "No alerts to display",
+    "tableHeaders": {
+      "id": "ID",
+      "type": "Type",
+      "value": "Value",
+      "threshold": "Threshold",
+      "status": "Status",
+      "date": "Date",
+      "actions": "Actions"
+    },
+    "types": {
+      "Temperature": "Temperature",
+      "Humidity": "Humidity"
+    },
+    "status": {
+      "open": "Open",
+      "closed": "Closed"
+    },
+    "closeButton": "Close",
+    "closeSuccess": "Alert closed successfully",
+    "closeError": "Could not close alert",
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page",
+      "showing": "Showing"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 GreenSpec - Industrial Alert System",
+    "status": "Active System"
+  }
+}
