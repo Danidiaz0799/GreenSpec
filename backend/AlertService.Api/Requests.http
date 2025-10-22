@@ -1,6 +1,6 @@
 ### AlertService API - Pruebas HTTP
 
-@baseUrl = https://localhost:7283
+@baseUrl = http://localhost:5046
 @token = 
 
 ### 1. Login (Obtener JWT Token)

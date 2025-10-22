@@ -115,6 +115,9 @@ El frontend estará disponible en: **http://localhost:3000**
 2. Iniciar sesión con:
    - **Usuario:** `demo`
    - **Contraseña:** `demo`
+   
+   > ⚠️ **Nota:** Las credenciales están hardcodeadas en `backend/AlertService.Api/Controllers/AuthController.cs` solo para propósitos de demostración. El archivo `frontend/.env.local` está incluido en el repositorio para facilitar la prueba.
+
 3. ¡Listo! Verás el dashboard con alertas en tiempo real
 
 ## 📊 Funcionalidades Principales
@@ -297,10 +300,12 @@ npm run clean
 
 ## 📝 Notas de Desarrollo
 
-- **Credenciales demo:** Hardcodeadas en `backend/AlertService.Api/Controllers/AuthController.cs`
-- **Simulador:** Genera valores aleatorios entre 30-70°C y 50-100% cada 4 segundos
-- **SignalR:** Notifica a todos los clientes conectados cuando se genera una alerta
-- **Paginación:** 10 items por página, configurable en `frontend/components/AlertsTable.tsx`
+- **Credenciales demo:** Hardcodeadas (`demo`/`demo`) en `backend/AlertService.Api/Controllers/AuthController.cs` solo para demostración. En producción se debe implementar un sistema de usuarios con base de datos.
+- **JWT SecretKey:** Configurada en `appsettings.json`. En producción debe moverse a Azure Key Vault o variables de entorno.
+- **Base de datos:** La contraseña de PostgreSQL está en `appsettings.json`. En producción usar secrets manager.
+- **Simulador:** Genera valores aleatorios entre 30-70°C y 50-100% cada 4 segundos.
+- **SignalR:** Notifica a todos los clientes conectados cuando se genera una alerta.
+- **Paginación:** 10 items por página, configurable en `frontend/components/AlertsTable.tsx`.
 
 ---
 
