@@ -1,0 +1,104 @@
+### AlertService API - Pruebas HTTP
+
+@baseUrl = https://localhost:7283
+@token = 
+
+### 1. Login (Obtener JWT Token)
+# POST {{baseUrl}}/auth/login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "username": "demo",
+  "password": "demo"
+}
+
+### 2. Login con credenciales incorrectas (debe fallar)
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "wrong"
+}
+
+### 3. Test endpoint sin autenticación (debe fallar con 401)
+GET {{baseUrl}}/test
+
+### 4. Test endpoint con autenticación (usar token del login)
+# Primero ejecuta el login y copia el token aquí
+GET {{baseUrl}}/test
+Authorization: Bearer {{token}}
+
+### 5. Ver claims del token JWT
+GET {{baseUrl}}/test/claims
+Authorization: Bearer {{token}}
+
+### ===== CONFIGURACIÓN DE UMBRALES =====
+
+### 6. Obtener configuración actual (requiere autenticación)
+GET {{baseUrl}}/config
+Authorization: Bearer {{token}}
+
+### 7. Obtener configuración sin autenticación (debe fallar con 401)
+GET {{baseUrl}}/config
+
+### 8. Actualizar configuración de umbrales
+PUT {{baseUrl}}/config
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "tempMax": 75.0,
+  "humidityMax": 80.0
+}
+
+### 9. Actualizar con valores inválidos (debe fallar)
+PUT {{baseUrl}}/config
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "tempMax": -10.0,
+  "humidityMax": 150.0
+}
+
+### 10. Verificar que la configuración se actualizó
+GET {{baseUrl}}/config
+Authorization: Bearer {{token}}
+
+### ===== GESTIÓN DE ALERTAS =====
+
+### 11. Obtener todas las alertas
+GET {{baseUrl}}/alerts
+Authorization: Bearer {{token}}
+
+### 12. Obtener una alerta específica por ID
+# Reemplaza {id} con el ID de una alerta existente
+GET {{baseUrl}}/alerts/1
+Authorization: Bearer {{token}}
+
+### 13. Reconocer una alerta (cambiar estado a "ack")
+# Reemplaza {id} con el ID de una alerta existente
+POST {{baseUrl}}/alerts/1/acknowledge
+Authorization: Bearer {{token}}
+
+### 14. Actualizar el estado de una alerta manualmente
+# Reemplaza {id} con el ID de una alerta existente
+PATCH {{baseUrl}}/alerts/1/status
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "status": "ack"
+}
+
+### 15. Cambiar estado de vuelta a "open"
+PATCH {{baseUrl}}/alerts/1/status
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "status": "open"
+}
+
