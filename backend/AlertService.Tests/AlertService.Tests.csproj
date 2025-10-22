@@ -5,6 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
+    <Authors>Daniel Steven Diaz</Authors>
   </PropertyGroup>
 
   <ItemGroup>

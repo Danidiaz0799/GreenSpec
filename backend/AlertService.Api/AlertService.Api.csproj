@@ -4,6 +4,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Authors>Daniel Steven Diaz</Authors>
   </PropertyGroup>
 
   <ItemGroup>

@@ -18,6 +18,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Authors>Daniel Steven Diaz</Authors>
   </PropertyGroup>
 
 </Project>

@@ -302,10 +302,10 @@ npm run clean
 - **SignalR:** Notifica a todos los clientes conectados cuando se genera una alerta
 - **Paginación:** 10 items por página, configurable en `frontend/components/AlertsTable.tsx`
 
+---
+
 ## 👨‍💻 Autor
 
-Proyecto desarrollado como sistema de monitoreo industrial con tecnologías modernas.
+**Daniel Steven Diaz**
 
-## 📄 Licencia
-
-Este proyecto es de código abierto y está disponible bajo la licencia MIT.
+Sistema de monitoreo industrial desarrollado con ASP.NET Core, Next.js y SignalR.
